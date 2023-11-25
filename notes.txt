@@ -1,0 +1,9 @@
+to run: yarn run dev
+
+'rafce' for react fat arrow function (use it by downloading react snippets extension, also es6 extension)
+
+a*5 = <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
+                    <a href=""></a>
