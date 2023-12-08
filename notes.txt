@@ -18,3 +18,8 @@ comment in react {/* ... */}
 react-icons for icons Eg:HiLocationMarker
 
 for gradient effects : filter: blur(100px);
+
+for Carausol: we used swiper library
+import {Swiper, SwiperSlide, useSwiper} from 'swiper/react'
+import "swiper/css"
+
