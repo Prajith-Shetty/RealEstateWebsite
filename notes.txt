@@ -23,3 +23,5 @@ for Carausol: we used swiper library
 import {Swiper, SwiperSlide, useSwiper} from 'swiper/react'
 import "swiper/css"
 
+icons from react-icons/md
+
