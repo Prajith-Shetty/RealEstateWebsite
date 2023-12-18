@@ -25,3 +25,6 @@ import "swiper/css"
 
 icons from react-icons/md
 
+import OutsideClickHandler from 'react-outside-click-handler' 
+to make menu disappear when we click outside
+
