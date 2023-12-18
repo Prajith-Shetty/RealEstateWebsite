@@ -29,3 +29,5 @@ import OutsideClickHandler from 'react-outside-click-handler'
 to make menu disappear when we click outside
 
 !important - to override the previous css
+
+import { motion } from 'framer-motion' for animations in hero section
