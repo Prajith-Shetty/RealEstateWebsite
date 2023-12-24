@@ -59,3 +59,10 @@ install 'Prisma' extension in VSCode for highlighting purpose.
 .env file for confidential info.
 
 Database URL is from mongodb website - database->connect->Drivers (copy link and paste). (edit database and password)
+
+npx prisma db push
+npx prisma generate
+
+'Thunder Client' extension is alternative to 'postman'.
+
+'ctrl+space' for auto-suggestion
