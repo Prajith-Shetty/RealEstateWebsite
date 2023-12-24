@@ -31,3 +31,31 @@ to make menu disappear when we click outside
 !important - to override the previous css
 
 import { motion } from 'framer-motion' for animations in hero section
+
+cloudfare pages for deployment
+use 'yarn run build' to build app. 'dist' folder will be created that we can upload to cloudfare.
+
+
+SERVER side:
+yarn init
+yarn add cookie-parser cors dotenv express express-async-handler express-oauth2-jwt-bearer nodemon prisma @prisma/client
+
+add "type":"module" to help in import expressions
+
+"scripts": {
+    "start": "nodemon index.js"
+  } in package.json, where nodemon is a package that continuously listens to index.js
+
+yarn run start - to start the server
+
+In mongodb website:
+create new database
+in network access - add : 0.0.0.0/0 ip address for development purpose
+in database access - remember the password. It is useful in first time setting of database.
+
+create prisma/schema.prisma  - prisma is the abstraction of our database layer
+install 'Prisma' extension in VSCode for highlighting purpose.
+
+.env file for confidential info.
+
+Database URL is from mongodb website - database->connect->Drivers (copy link and paste). (edit database and password)
