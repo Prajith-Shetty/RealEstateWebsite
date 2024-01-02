@@ -1,29 +1,23 @@
-import Header from "./components/Header/Header";
-import Hero from "./components/Hero/Hero";
-import Companies from "./components/Companies/Companies";
-import Residencies from "./components/Residencies/Residencies";
+import { Suspense } from 'react';
 import './App.css';
-import Value from "./components/Value/Value";
-import Contact from "./components/Contact/Contact";
-import GetStarted from "./components/GetStarted/GetStarted";
-import Footer from "./components/Footer/Footer";
+import Website from "./pages/Website";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from './components/Layout/Layout';
+import Properties from './pages/Properties/Properties';
 
 function App() {
   return (
-    <div className="App">
-      {/* we are enclosing Header and Hero inside a div for getting the white gradient effect */}
-      <div>
-        <div className="white-gradient"/>
-        <Header />
-        <Hero />
-      </div>
-      <Companies/>
-      <Residencies/>
-      <Value/>
-      <Contact/>
-      <GetStarted/>
-      <Footer/>
-    </div>
+    <BrowserRouter>
+    <Suspense fallback={<div>Loading...</div>}>
+    <Routes>
+      <Route element={<Layout />}> 
+      {/* Layout is used since we have header and footer same in all the pages */}
+        <Route path='/' element={<Website />} />
+        <Route path='/properties' element={<Properties />}/>
+      </Route>
+    </Routes>
+    </Suspense>
+    </BrowserRouter>
   );
 }
 
