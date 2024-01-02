@@ -66,3 +66,9 @@ npx prisma generate
 'Thunder Client' extension is alternative to 'postman'.
 
 'ctrl+space' for auto-suggestion
+
+we downloaded 'MongoDB Command Line Database Tools Download' from https://www.mongodb.com/try/download/database-tools
+
+./mongoimport --uri mongodb+srv://prajithshettyj:aa8zQhlY7zGn0OnS@cluster0.sq2edo3.mongodb.net/RealEstate --collection Residency --type json --jsonArray --file Residency.json
+command to import Residency.json to database. First copy the Residency.json file to the database tool bin folder.
+(do in windows powershell)
