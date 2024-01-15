@@ -1,6 +1,7 @@
 import React from 'react'
 import './PropertyCard.css'
 import {AiFillHeart} from 'react-icons/ai'
+import {truncate} from 'lodash'
 
 const PropertyCard = ({card}) => {
     return (
@@ -13,10 +14,10 @@ const PropertyCard = ({card}) => {
             </span>
 
             <span className="primaryText">
-                {card.name}
+                {truncate(card.title, {length: 15})}
             </span>
 
-            <span className="secondayText">{card.detail}</span>
+            <span className="secondayText">{truncate(card.description, {length: 80})}</span>
         </div>
     )
 }

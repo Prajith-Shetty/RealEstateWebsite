@@ -74,3 +74,16 @@ command to import Residency.json to database. First copy the Residency.json file
 (do in windows powershell)
 
 yarn add react-router-dom - for routing purpose in client side
+
+'clamp' in css is used to declare min and max width in one row.
+
+yarn add react-query
+
+yarn add axios dayjs react-toastify 
+
+to make react-toastify work add '<ToastContainer/>' in App.jsx
+add "import 'react-toastify/dist/ReactToastify.css';" for its css
+
+yarn add react-spinners (for loading screen)
+
+yarn add lodash
