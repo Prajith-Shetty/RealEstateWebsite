@@ -89,3 +89,5 @@ yarn add react-spinners (for loading screen)
 yarn add lodash
 
 yarn add react-leaflet (for map)
+
+yarn add esri-leaflet-geocoder (for solving many react-leaflet bugs)
