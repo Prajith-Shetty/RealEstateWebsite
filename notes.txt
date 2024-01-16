@@ -87,3 +87,5 @@ add "import 'react-toastify/dist/ReactToastify.css';" for its css
 yarn add react-spinners (for loading screen)
 
 yarn add lodash
+
+yarn add react-leaflet (for map)
