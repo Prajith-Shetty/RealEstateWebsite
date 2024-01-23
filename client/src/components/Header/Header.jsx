@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import './Header.css'
-import {BiMenuAltRight} from 'react-icons/bi'
+import { BiMenuAltRight } from 'react-icons/bi'
 import OutsideClickHandler from 'react-outside-click-handler'
 import { Link, NavLink } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
+import ProfileMenu from '../ProfileMenu/ProfileMenu'
 
 const Header = () => {
     const [menuOpened, setMenuOpened] = useState(false);
-    const getMenuStyles = (menuOpened)=>{
-        if(document.documentElement.clientWidth<=800){
-            return {right: !menuOpened && "-100%"}
+    const getMenuStyles = (menuOpened) => {
+        if (document.documentElement.clientWidth <= 800) {
+            return { right: !menuOpened && "-100%" }
         }
     }
+    const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0()
     return (
         <section className="h-wrapper">
             <div className="flexCenter paddings innerWidth h-container">
@@ -19,31 +22,38 @@ const Header = () => {
                 </Link>
 
                 <OutsideClickHandler
-                onOutsideClick={()=>{
-                    setMenuOpened(false)
-                }}>
-                <div className="flexCenter h-menu"
-                style={getMenuStyles(menuOpened)}>
-                    
-                   <NavLink to="/properties">Properties</NavLink>
+                    onOutsideClick={() => {
+                        setMenuOpened(false)
+                    }}>
+                    <div className="flexCenter h-menu"
+                        style={getMenuStyles(menuOpened)}>
 
-                    <a href="mailto:prajithshetty123@gmail.com">Contact</a>
+                        <NavLink to="/properties">Properties</NavLink>
 
-                  {/* login button */}
-                  <button className='button'>
-                    Login
-                  </button>
+                        <a href="mailto:prajithshetty123@gmail.com">Contact</a>
 
-                </div>
+                        {/* login button */}
+                        {
+                            !isAuthenticated ? (
+                            <button className='button' onClick={loginWithRedirect}>
+                            Login
+                        </button>)
+                        :
+                        (
+                            <ProfileMenu user={user} logout={logout}/>
+                        )
+                        }
+
+                    </div>
                 </OutsideClickHandler>
 
                 {/* for medium and small screens */}
-                <div className="menu-icon" onClick={()=>setMenuOpened((prev)=>!prev)}>
-                <BiMenuAltRight size={30}/>
-            </div>
+                <div className="menu-icon" onClick={() => setMenuOpened((prev) => !prev)}>
+                    <BiMenuAltRight size={30} />
+                </div>
 
             </div>
-            
+
         </section>
     )
 }

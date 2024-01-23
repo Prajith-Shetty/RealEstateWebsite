@@ -91,3 +91,12 @@ yarn add lodash
 yarn add react-leaflet (for map)
 
 yarn add esri-leaflet-geocoder (for solving many react-leaflet bugs)
+
+auth0 for authentication
+
+yarn add @auth0/auth0-react
+
+we can add more login methods in auth0 by going to Authentication->Social->create connection
+
+yarn add @mantine/core @mantine/dates @mantine/form @mantine/hooks
+yarn add @emotion/react
