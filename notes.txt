@@ -100,3 +100,5 @@ we can add more login methods in auth0 by going to Authentication->Social->creat
 
 yarn add @mantine/core @mantine/dates @mantine/form @mantine/hooks
 yarn add @emotion/react
+
+yarn add dayjs in client folder

@@ -22,7 +22,7 @@ function App() {
   })
 
   return (
-    <UserDetailContext.Provider value={{userDetails, setUserDetails}}>
+    <UserDetailContext.Provider value={{ userDetails, setUserDetails }}>
     <QueryClientProvider client = {queryClient}>
       <MantineProvider>
     <BrowserRouter>

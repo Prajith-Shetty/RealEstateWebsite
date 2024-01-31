@@ -9,41 +9,45 @@ import { createUser } from '../../utils/api'
 
 
 const Layout = () => {
-  const {isAuthenticated, user, getAccessTokenWithPopup} = useAuth0()
-  const {setUserDetails} = useContext(UserDetailContext)
+  const { isAuthenticated, user, getAccessTokenWithPopup } = useAuth0();
+  const { setUserDetails } = useContext(UserDetailContext);
 
-  const {mutate} = useMutation({
+  const { mutate } = useMutation({
     mutationKey: [user?.email],
-    mutationFn: (token)=> createUser(user?.email, token)
-  })
+    mutationFn: (token) => createUser(user?.email, token),
+  });
 
-  useEffect(()=>{
-
-    const getTokenAndRegister = async ()=>{
-      const res = await getAccessTokenWithPopup({
-        authorizationParams: {
-          audience: "http://localhost:8000",
-          scope: "openid profile email"
-        }
-      })
-      localStorage.setItem("access_token", res)
-      setUserDetails((prev)=>({...prev, token: res}))
-      mutate(res);
+  useEffect(() => {
+    const getTokenAndRegister = async () => {
+      try {
+        const res = await getAccessTokenWithPopup({
+          authorizationParams: {
+            audience: "http://localhost:8000",
+            scope: "openid profile email",
+          }
+        });
+        console.log(res);
+        localStorage.setItem("access_token", res);
+        setUserDetails((prev) => ({ ...prev, token: res }));
+        await mutate(res);
+      } catch (error) {
+        // Handle error, e.g., display a message to the user
+        console.error("Error getting access token:", error);
+      }
     };
 
-    isAuthenticated && getTokenAndRegister()
-  },[isAuthenticated])
+    isAuthenticated && getTokenAndRegister();
+  }, [isAuthenticated]);
 
   return (
     <>
-        <div style={{background: "var(--black)", overflow: "hidden"}}>
-            <Header/>
-        </div>
-        <Outlet/>
-        <Footer/>
+      <div style={{ background: "var(--black)", overflow: "hidden" }}>
+        <Header />
+      </div>
+      <Outlet />
+      <Footer />
     </>
-    
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
